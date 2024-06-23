@@ -1,0 +1,59 @@
+---
+interface Props {
+  current: string;
+}
+
+const { current } = Astro.props;
+
+const elements = [
+  { label: 'About', value: 'about', link: '/about' },
+  { label: 'Projects', value: 'projects', link: '/projects' },
+  { label: 'Blog', value: 'blog', link: '/blog' },
+  { label: 'GitHub', link: 'https://github.com/nkeil' },
+  { label: 'Twitter', link: 'https://x.com/nickkeilhere' },
+];
+---
+
+<ul class="container">
+  {
+    elements.map((element) => (
+      <a
+        href={element.link}
+        target={element.link.startsWith('http') ? '_blank' : ''}
+        class="nav-element"
+      >
+        <li class={element.value === current ? 'current' : ''}>
+          {element.label}
+        </li>
+      </a>
+    ))
+  }
+</ul>
+
+<style>
+  .container {
+    font-family: 'Franklin Gothic', sans-serif;
+    font-size: 48px;
+    text-transform: uppercase;
+    letter-spacing: -0.125em;
+    line-height: 45px;
+
+    transform: rotate(-0.9deg);
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-element {
+    color: black;
+    text-decoration: none;
+  }
+
+  .current {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+  }
+</style>
