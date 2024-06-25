@@ -1,0 +1,36 @@
+---
+const themes = [
+  { label: 'Off White', value: 'off-white' },
+  { label: 'Red', value: 'red' },
+  { label: 'Blue', value: 'blue' },
+  { label: 'Yellow', value: 'yellow' },
+  { label: 'Green', value: 'green' },
+];
+---
+
+<ul>
+  {
+    themes.map((theme) => (
+      <li class={'theme-button ' + theme.value}>{theme.label}</li>
+    ))
+  }
+</ul>
+
+<script>
+  const setTheme = (theme: string) => {
+    document.documentElement.className = `theme-${theme}`;
+    localStorage.setItem('theme', theme);
+  };
+
+  const theme = localStorage.getItem('theme');
+  if (theme) setTheme(theme);
+
+  for (const button of document.querySelectorAll('.theme-button')) {
+    button.addEventListener('click', () => {
+      for (const classItem of button.classList) {
+        if (classItem === 'theme-button') continue;
+        setTheme(classItem);
+      }
+    });
+  }
+</script>

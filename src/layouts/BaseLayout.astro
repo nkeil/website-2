@@ -9,7 +9,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="theme-off-white">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -19,7 +19,7 @@ const { title } = Astro.props;
     <title>{title} | nickkeil.com</title>
     <ViewTransitions />
   </head>
-  <body class="theme-off-white">
+  <body>
     <slot />
     {
       /*
@@ -34,28 +34,48 @@ const { title } = Astro.props;
   html {
     font-family: system-ui, sans-serif;
     font-size: 90%; /* base size for `rem`` units */
+
+    &.theme-off-white {
+      --theme-color: #f3f2ee;
+      --theme-texture-color: #fff;
+    }
+    &.theme-red {
+      --theme-color: #f56579;
+      --theme-texture-color: #ff4062;
+    }
+    &.theme-blue {
+      --theme-color: #b1e2e2;
+      --theme-texture-color: #a4e9eb;
+    }
+    &.theme-yellow {
+      --theme-color: #eacf59;
+      --theme-texture-color: #f1d02e;
+    }
+    &.theme-green {
+      --theme-color: #b6d086;
+      --theme-texture-color: #aacf73;
+    }
   }
 
   body {
-    margin: 60px;
+    margin: 0;
+    padding: 60px;
+  }
 
+  html {
     background-color: var(--theme-color);
+  }
 
-    &.theme-off-white {
-      --theme-color: #fffff9;
-    }
-    &.theme-red {
-      --theme-color: #ff6d78;
-    }
-    &.theme-blue {
-      --theme-color: #b9e6e7;
-    }
-    &.theme-yellow {
-      --theme-color: #f2d95f;
-    }
-    &.theme-green {
-      --theme-color: #aacf73;
-    }
+  body {
+    background-color: var(--theme-texture-color);
+    background-image: url(paper-texture.png);
+  }
+
+  h1 {
+    background-color: var(--theme-texture-color);
+    background-image: url(paper-texture.png);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   code {
