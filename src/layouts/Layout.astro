@@ -19,12 +19,14 @@ const { title, current } = Astro.props;
         <Logo />
       </div>
       <Navigation {current} />
-      <ThemePicker />
     </div>
 
     <div style="flex-grow: 1">
       <slot />
     </div>
+  </div>
+  <div class="theme-picker">
+    <ThemePicker />
   </div>
 </BaseLayout>
 
@@ -33,6 +35,10 @@ const { title, current } = Astro.props;
     display: flex;
     max-width: 900px;
     margin-inline: auto;
-    margin-bottom: 70px;
+  }
+
+  .theme-picker {
+    margin-top: 70px;
+    margin-inline: auto;
   }
 </style>

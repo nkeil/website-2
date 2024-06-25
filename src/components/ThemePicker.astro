@@ -8,13 +8,43 @@ const themes = [
 ];
 ---
 
-<ul>
-  {
-    themes.map((theme) => (
-      <li class={'theme-button ' + theme.value}>{theme.label}</li>
-    ))
+<div class="container">
+  {themes.map((theme) => <div class={'theme-button ' + theme.value} />)}
+</div>
+
+<style>
+  .container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
   }
-</ul>
+
+  .theme-button {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+
+    border-radius: 10px;
+    border: 4px solid #252525;
+
+    background-image: url(paper-texture.png);
+    &.off-white {
+      background-color: var(--theme-texture-off-white);
+    }
+    &.red {
+      background-color: var(--theme-texture-red);
+    }
+    &.blue {
+      background-color: var(--theme-texture-blue);
+    }
+    &.yellow {
+      background-color: var(--theme-texture-yellow);
+    }
+    &.green {
+      background-color: var(--theme-texture-green);
+    }
+  }
+</style>
 
 <script>
   let currentTheme: string;

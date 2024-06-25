@@ -35,31 +35,43 @@ const { title } = Astro.props;
     font-family: system-ui, sans-serif;
     font-size: 90%; /* base size for `rem`` units */
 
+    --theme-off-white: #f3f2ee;
+    --theme-texture-off-white: #fff;
+    --theme-red: #f56579;
+    --theme-texture-red: #ff4062;
+    --theme-blue: #b1e2e2;
+    --theme-texture-blue: #a4e9eb;
+    --theme-yellow: #eacf59;
+    --theme-texture-yellow: #f1d02e;
+    --theme-green: #b6d086;
+    --theme-texture-green: #aacf73;
+
     &.theme-off-white {
-      --theme-color: #f3f2ee;
-      --theme-texture-color: #fff;
+      --theme-color: var(--theme-off-white);
+      --theme-texture-color: var(--theme-texture-off-white);
     }
     &.theme-red {
-      --theme-color: #f56579;
-      --theme-texture-color: #ff4062;
+      --theme-color: var(--theme-red);
+      --theme-texture-color: var(--theme-texture-red);
     }
     &.theme-blue {
-      --theme-color: #b1e2e2;
-      --theme-texture-color: #a4e9eb;
+      --theme-color: var(--theme-blue);
+      --theme-texture-color: var(--theme-texture-blue);
     }
     &.theme-yellow {
-      --theme-color: #eacf59;
-      --theme-texture-color: #f1d02e;
+      --theme-color: var(--theme-yellow);
+      --theme-texture-color: var(--theme-texture-yellow);
     }
     &.theme-green {
-      --theme-color: #b6d086;
-      --theme-texture-color: #aacf73;
+      --theme-color: var(--theme-green);
+      --theme-texture-color: var(--theme-texture-green);
     }
   }
 
   body {
     margin: 0;
     padding: 60px;
+    padding-bottom: 10px;
   }
 
   html {
