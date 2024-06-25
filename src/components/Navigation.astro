@@ -17,15 +17,14 @@ const elements = [
 <ul class="container">
   {
     elements.map((element) => (
-      <a
-        href={element.link}
-        target={element.link.startsWith('http') ? '_blank' : ''}
-        class="nav-element"
-      >
-        <li class={element.value === current ? 'current' : ''}>
+      <li class={'nav-element ' + (element.value === current ? 'current' : '')}>
+        <a
+          href={element.link}
+          target={element.link.startsWith('http') ? '_blank' : ''}
+        >
           {element.label}
-        </li>
-      </a>
+        </a>
+      </li>
     ))
   }
 </ul>
