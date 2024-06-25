@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
+
 interface Props {
   title: string;
 }
@@ -15,37 +17,44 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title} | nickkeil.com</title>
+    <ViewTransitions />
   </head>
-  <body>
+  <body class="theme-off-white">
     <slot />
+    {
+      /*
+       * This comment prevents weird formatting for some reason.
+       * See https://github.com/withastro/prettier-plugin-astro/issues/316#issuecomment-2114626247
+       */
+    }
   </body>
 </html>
+
 <style is:global>
-  :root {
-    --accent: 136, 58, 234;
-    --accent-light: 224, 204, 250;
-    --accent-dark: 49, 10, 101;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      rgb(var(--accent-light)) 30%,
-      white 60%
-    );
-
-    --off-white: 255, 255, 249;
-    /* --red: FF6D78 */
-    /* --blue: B9E6E7 */
-    /* --yellow: F2D95F */
-    /* --green: AACF73 */
-  }
-
   html {
     font-family: system-ui, sans-serif;
   }
 
   body {
-    background-color: rgba(var(--off-white));
     margin: 60px;
+
+    background-color: var(--theme-color);
+
+    &.theme-off-white {
+      --theme-color: #fffff9;
+    }
+    &.theme-red {
+      --theme-color: #ff6d78;
+    }
+    &.theme-blue {
+      --theme-color: #b9e6e7;
+    }
+    &.theme-yellow {
+      --theme-color: #f2d95f;
+    }
+    &.theme-green {
+      --theme-color: #aacf73;
+    }
   }
 
   code {
