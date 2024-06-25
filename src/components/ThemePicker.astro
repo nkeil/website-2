@@ -17,20 +17,34 @@ const themes = [
 </ul>
 
 <script>
-  const setTheme = (theme: string) => {
-    document.documentElement.className = `theme-${theme}`;
+  let currentTheme: string;
+
+  const setTheme = (theme: string, customDocument?: Document) => {
+    const selectedDocument = customDocument ? customDocument : document;
+    selectedDocument.documentElement.className = `theme-${theme}`;
     localStorage.setItem('theme', theme);
+    currentTheme = theme;
+  };
+
+  const hydrateButtons = () => {
+    for (const button of document.querySelectorAll('.theme-button')) {
+      button.addEventListener('click', () => {
+        for (const classItem of button.classList) {
+          if (classItem === 'theme-button') continue;
+          setTheme(classItem);
+        }
+      });
+    }
   };
 
   const theme = localStorage.getItem('theme');
   if (theme) setTheme(theme);
+  else setTheme('off-white');
 
-  for (const button of document.querySelectorAll('.theme-button')) {
-    button.addEventListener('click', () => {
-      for (const classItem of button.classList) {
-        if (classItem === 'theme-button') continue;
-        setTheme(classItem);
-      }
-    });
-  }
+  document.addEventListener('astro:before-swap', (event) => {
+    setTheme(currentTheme, event.newDocument);
+  });
+  document.addEventListener('astro:page-load', () => {
+    hydrateButtons();
+  });
 </script>
