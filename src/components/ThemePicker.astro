@@ -1,4 +1,6 @@
 ---
+import { bgImage } from '../utils/background-image';
+
 const themes = [
   { label: 'Off White', value: 'off-white' },
   { label: 'Red', value: 'red' },
@@ -9,7 +11,14 @@ const themes = [
 ---
 
 <div class="container">
-  {themes.map((theme) => <div class={'theme-button ' + theme.value} />)}
+  {
+    themes.map((theme) => (
+      <div
+        class={'theme-button ' + theme.value}
+        style={`background-image: url(${bgImage.src})`}
+      />
+    ))
+  }
 </div>
 
 <style>
