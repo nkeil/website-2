@@ -16,7 +16,13 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title} | nickkeil.com</title>
+    {
+      title ? (
+        <title>{title} | nickkeil.com</title>
+      ) : (
+        <title>nickkeil.com</title>
+      )
+    }
     <ViewTransitions />
   </head>
   <body>
@@ -46,6 +52,9 @@ const { title } = Astro.props;
     --theme-green: #b6d086;
     --theme-texture-green: #aacf73;
 
+    --black: #000000;
+    --dark-grey: #303030;
+
     &.theme-off-white {
       --theme-color: var(--theme-off-white);
       --theme-texture-color: var(--theme-texture-off-white);
@@ -72,6 +81,7 @@ const { title } = Astro.props;
     margin: 0;
     padding: 60px;
     padding-bottom: 10px;
+    color: var(--black);
   }
 
   html {
@@ -156,7 +166,6 @@ const { title } = Astro.props;
 
   body {
     min-height: 100vh;
-    /* line-height: 1.5; */
   }
 
   h1,
@@ -184,7 +193,6 @@ const { title } = Astro.props;
 
   img,
   picture {
-    max-width: 100%;
     display: block;
   }
 

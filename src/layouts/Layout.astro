@@ -1,4 +1,5 @@
 ---
+import Footer from '../components/Footer.astro';
 import Logo from '../components/Logo.astro';
 import Navigation from '../components/Navigation.astro';
 import ThemePicker from '../components/ThemePicker.astro';
@@ -28,6 +29,7 @@ const { title, current } = Astro.props;
   <div class="theme-picker">
     <ThemePicker />
   </div>
+  <Footer />
 </BaseLayout>
 
 <style>
