@@ -9,9 +9,13 @@ import { Content } from '../content/about.md';
   <div class="content"><Content /></div>
 </Layout>
 
-<style>
+<style is:global>
   .content {
     font-family: 'BrotherDeluxe1350', serif;
     font-size: 2rem;
+
+    & a {
+      color: #001d60;
+    }
   }
 </style>

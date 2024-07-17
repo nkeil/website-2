@@ -1,19 +1,11 @@
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua.
+I'm sure that you'd like to hear all about me since you clicked on the about tab.
 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat.
+Well good, because there's a lot to get to.
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Firstly, my name is Nick. Or Nicolas. Whichever you prefer. Personally I prefer neither. Just awkwardly say hello to me like you forgot my name.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua.
+The next interesting thing about me is that I create websites. Usually for money but this time I've made an exception.
 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat.
+Thirdly I like to go outside occasionally to stand on a board with wheels and try to make it flip around.
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+One day I might start a company so you should probably [be my friend](https://x.com/nickkeilhere).
