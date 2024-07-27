@@ -8,4 +8,4 @@ The next interesting thing about me is that I create websites. Usually for money
 
 Thirdly I like to go outside occasionally to stand on a board with wheels and try to make it flip around.
 
-One day I might start a company so you should probably [be my friend](https://x.com/nickkeilhere).
+One day I might do something cool so you should probably [be my friend](https://x.com/nickkeilhere).
