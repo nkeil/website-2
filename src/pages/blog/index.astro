@@ -1,0 +1,75 @@
+---
+import { getCollection } from 'astro:content';
+import Heading from '../../components/Heading.astro';
+import Layout from '../../layouts/Layout.astro';
+
+const posts = await getCollection('blog');
+type Post = (typeof posts)[number];
+
+const postsByYear: Record<string, Post[]> = {};
+for (const post of posts.reverse()) {
+  const year = post.data.date.getFullYear();
+  if (!(year in postsByYear)) postsByYear[year] = [];
+  postsByYear[year].push(post);
+}
+const years = Object.keys(postsByYear).sort((y1, y2) => +y2 - +y1);
+---
+
+<Layout title="Blog" current="blog">
+  <Heading value="Blog" />
+  <div class="content">
+    <ul>
+      {
+        years.map((year) => (
+          <>
+            <li style="margin-bottom: 30px">
+              {year}
+              <ul>
+                {postsByYear[year].map((post) => (
+                  <li class="dash" style="margin-block: 5px">
+                    <a href={'blog/' + post.slug}>{post.data.title}</a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          </>
+        ))
+      }
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  .content {
+    font-family: 'BrotherDeluxe1350', serif;
+    font-size: 2rem;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  li.dash {
+    text-indent: -25px;
+  }
+
+  li.dash::before {
+    content: '-';
+    text-indent: -25px;
+  }
+
+  ul {
+    padding: 0;
+    list-style-position: outside;
+  }
+
+  ul:has(li.dash) {
+    padding-left: 25px;
+  }
+
+  hr {
+    border-top-width: 3px;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+</style>

@@ -3,20 +3,41 @@ import { bgImage } from '../utils/background-image';
 
 interface Props {
   value: string;
+  subtext?: string;
 }
 
-const { value } = Astro.props;
+const { value, subtext } = Astro.props;
 ---
 
 <div class="container">
   <div class="box">
-    <h1 style={`background-image: url(${bgImage.src})`}>
+    <h1 class="bg-paper" style={`background-image: url(${bgImage.src})`}>
       {value}
     </h1>
   </div>
+  {
+    subtext && (
+      <div class="box-subtext">
+        <div>
+          <span
+            class="subtext bg-paper"
+            style={`background-image: url(${bgImage.src})`}
+          >
+            {subtext}
+          </span>
+        </div>
+      </div>
+    )
+  }
 </div>
 
 <style>
+  .bg-paper {
+    background-color: var(--theme-texture-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   .box {
     background-color: var(--black);
     width: fit-content;
@@ -33,5 +54,29 @@ const { value } = Astro.props;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: -0.08em;
+  }
+
+  .box-subtext {
+    width: fit-content;
+    margin-inline: auto;
+    transform: translateY(-10px);
+
+    & > div {
+      width: fit-content;
+      max-width: 600px;
+      background-color: var(--black);
+      margin-inline: auto;
+      padding: 0px 15px 5px 15px;
+      transform: rotate(-0.66deg);
+    }
+  }
+
+  .subtext {
+    font-family: 'BrotherDeluxe1350', serif;
+    text-transform: lowercase;
+    text-align: center;
+
+    font-size: 1.25rem;
+    display: inline-block;
   }
 </style>

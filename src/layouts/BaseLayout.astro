@@ -87,12 +87,6 @@ const { title } = Astro.props;
     background-color: var(--theme-texture-color);
   }
 
-  h1 {
-    background-color: var(--theme-texture-color);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
   code {
     font-family:
       Menlo,
@@ -121,9 +115,102 @@ const { title } = Astro.props;
     font-display: block;
   }
 
+  @font-face {
+    font-family: 'blzee';
+    src: url('/fonts/blzee.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+
   a {
     color: inherit;
     text-decoration: inherit;
+  }
+
+  /* ================================= MARKDOWN ================================ */
+  article {
+    font-family: 'BrotherDeluxe1350', serif;
+    font-size: 2rem;
+    max-width: 640px;
+
+    & a {
+      color: #001d60 !important;
+    }
+
+    & pre {
+      white-space: break-spaces;
+      width: 100%;
+    }
+
+    & blockquote {
+      margin: 0px;
+      border-left: 6px black solid;
+      padding-left: 20px;
+    }
+
+    & h1,
+    h2 {
+      margin-block: 30px;
+    }
+
+    & h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: 20px;
+    }
+
+    & p:has(img) {
+      background-color: #f7f7f7;
+      box-shadow: 8px 7px 30px #00000033;
+      padding-block: 20px;
+      border-radius: 3px;
+      transform: rotate(0.43deg);
+    }
+
+    & img {
+      max-width: 500px;
+      height: auto;
+      border: 1px rgb(161, 161, 161) solid;
+      margin-inline: auto;
+      margin-top: 20px;
+    }
+
+    & img + em {
+      margin-top: 20px;
+      font-size: 1.25rem;
+      text-align: center;
+      display: block;
+      font-family: 'blzee';
+      margin-inline: 30px;
+    }
+
+    & hr {
+      margin-block: 50px;
+      border-color: black;
+    }
+
+    & .astro-code {
+      /* @apply shadow-inner shadow-[rgba(0,0,0,0.1)] md:rounded-lg md:-mx-8 -mx-2 overflow-y-auto space-y-2 p-4 !bg-[#faf9f9] my-8; */
+      background-color: #f7f7f7 !important;
+      box-shadow: 8px 7px 30px #00000033;
+      padding-block: 20px;
+      border-radius: 3px;
+      transform: rotate(-0.43deg);
+    }
+
+    & code {
+      background-color: white;
+      display: block;
+      padding: 5px;
+      max-width: 500px;
+      font-size: 1.4rem;
+      margin-inline: auto;
+      border: 1px rgb(161, 161, 161) solid;
+      overflow: auto;
+      text-wrap: nowrap;
+    }
   }
 
   /* ================================= CSS RESET ================================ */
