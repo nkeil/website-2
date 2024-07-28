@@ -1,0 +1,95 @@
+---
+import { getCollection } from 'astro:content';
+import Heading from '../../components/Heading.astro';
+import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+const projects = await getCollection('projects');
+
+const getRotation = () => {
+  return Math.random() * 4 - 2;
+};
+---
+
+<Layout title="Projects" current="projects">
+  <Heading value="Projects" />
+  <div class="content">
+    {
+      projects.map((project) => (
+        <a
+          href={'projects/' + project.slug}
+          class="card"
+          style={`transform: rotate(${getRotation()}deg)`}
+        >
+          <div class="image-wrapper">
+            <Image src={project.data.image} alt="" width="400" />
+          </div>
+          <div class="project-label-box">
+            <div>
+              <span class="bg-paper project-label">{project.data.name}</span>
+            </div>
+          </div>
+        </a>
+      ))
+    }
+  </div>
+</Layout>
+
+<style is:global>
+  img {
+    max-width: 250px;
+    max-height: 150px;
+    width: auto;
+    height: auto;
+
+    margin: auto;
+    top: 50%;
+  }
+</style>
+
+<style>
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 30px;
+    margin-top: 20px;
+  }
+
+  .card {
+    display: block;
+  }
+
+  .image-wrapper {
+    border: 5px black solid;
+    width: 300px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.471);
+  }
+
+  .project-label-box {
+    width: fit-content;
+    margin-inline: auto;
+    transform: translateY(-10px);
+    max-width: 250px;
+
+    & > div {
+      width: fit-content;
+      max-width: 600px;
+      background-color: var(--black);
+      margin-inline: auto;
+      padding: 0px 15px 5px 15px;
+    }
+  }
+
+  .project-label {
+    font-family: 'BrotherDeluxe1350', serif;
+    text-transform: lowercase;
+    text-align: center;
+
+    font-size: 1.25rem;
+    display: inline-block;
+  }
+</style>
