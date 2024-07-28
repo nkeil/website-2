@@ -8,4 +8,20 @@ import { Image } from 'astro:assets';
   <div style="padding-left: 100px">
     <Image src={selfImage} alt="photo of myself" height={700} loading="eager" />
   </div>
+  <div class="content">hi there. this is a picture of me.</div>
 </Layout>
+
+<style>
+  .content {
+    font-family: 'BrotherDeluxe1350', serif;
+    margin-top: 40px;
+    font-size: 1.25rem;
+    text-align: center;
+  }
+</style>
+
+<style is:global>
+  img {
+    margin-inline: auto;
+  }
+</style>
