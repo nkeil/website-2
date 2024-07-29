@@ -14,11 +14,27 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 
 const { Content } = await post.render();
+
+const { title, description, date } = post.data;
+const month = date.toLocaleString('default', { month: 'long' });
+const formattedDate = `${date.getDate()} ${month} ${date.getFullYear()}`;
 ---
 
-<Layout title={post.data.title} current="blog">
-  <Heading value={post.data.title} subtext={post.data.description} />
+<Layout {title} current="blog">
+  <Heading value={title} subtext={description} />
   <article>
     <Content />
+    <hr />
+    <p class="pub-date">
+      {formattedDate}
+    </p>
   </article>
 </Layout>
+
+<style>
+  .pub-date {
+    margin-top: 50px;
+    font-size: 2.5rem;
+    text-align: center;
+  }
+</style>

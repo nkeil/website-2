@@ -198,7 +198,8 @@ const { title } = Astro.props;
 
     & hr {
       margin-block: 50px;
-      border-color: black;
+      border: 0px black dotted;
+      border-top-width: 4px;
     }
 
     & .astro-code {
@@ -227,6 +228,23 @@ const { title } = Astro.props;
       background-color: rgba(255, 255, 255, 0.531);
       padding: 5px;
       font-size: 1.5rem;
+    }
+
+    & ul {
+      list-style: none;
+
+      & > li::before {
+        content: '- ';
+      }
+
+      & ul {
+        /* list-style: lower-alpha; */
+        /* margin-left: 30px; */
+
+        & > li::before {
+          content: '* ';
+        }
+      }
     }
   }
 
