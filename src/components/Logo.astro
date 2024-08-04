@@ -1,4 +1,12 @@
-<a href="/">
+---
+interface Props {
+  fontSize?: number;
+}
+
+const { fontSize = 3 } = Astro.props;
+---
+
+<a href="/" style={`font-size: ${fontSize}rem`}>
   Nick<br />
   Keil<br />
   .com
@@ -15,7 +23,6 @@
 
   a {
     font-family: 'Mustasurma', sans-serif;
-    font-size: 3rem;
 
     color: inherit;
     text-decoration: inherit;
