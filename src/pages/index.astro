@@ -2,9 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 import selfImage from '../images/self.png';
 import { Image } from 'astro:assets';
+
+const description = 'My personal website.';
 ---
 
-<Layout title="" current="">
+<Layout title="" {description} current="">
   <div style="padding-left: 100px">
     <Image src={selfImage} alt="photo of myself" height={700} loading="eager" />
   </div>
