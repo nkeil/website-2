@@ -15,9 +15,9 @@ const { post } = Astro.props;
 
 const { Content } = await post.render();
 
-const { title, description, date } = post.data;
-const month = date.toLocaleString('default', { month: 'long' });
-const formattedDate = `${date.getDate()} ${month} ${date.getFullYear()}`;
+const { title, description, pubDate } = post.data;
+const month = pubDate.toLocaleString('default', { month: 'long' });
+const formattedDate = `${pubDate.getDate()} ${month} ${pubDate.getFullYear()}`;
 ---
 
 <Layout {title} current="blog">

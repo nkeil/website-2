@@ -8,7 +8,7 @@ type Post = (typeof posts)[number];
 
 const postsByYear: Record<string, Post[]> = {};
 for (const post of posts.reverse()) {
-  const year = post.data.date.getFullYear();
+  const year = post.data.pubDate.getFullYear();
   if (!(year in postsByYear)) postsByYear[year] = [];
   postsByYear[year].push(post);
 }
