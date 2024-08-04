@@ -1,10 +1,14 @@
 ---
 name: 'Typing Executioner'
-description: 'A fun little typing practice tool'
+description: 'A "fun" little typing practice tool'
 startDate: 'Dec 08 2023'
 image: '../../images/projects/typing-executioner.png'
 link: 'https://typing.nickkeil.com'
 ---
+
+Update August 2024: I don't like this at all anymore. Be warned.
+
+<hr>
 
 I've always wanted to make a typing practice tool so that I could tune it exactly how I wanted. This is the start of a project to do just that. A warning before you try it out: there are sound effects that will play when you type.
 
