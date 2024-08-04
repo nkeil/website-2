@@ -144,6 +144,10 @@ const { title } = Astro.props;
       color: #001d60 !important;
     }
 
+    & a:hover {
+      text-decoration: underline;
+    }
+
     & pre {
       white-space: break-spaces;
       width: 100%;
@@ -233,8 +237,13 @@ const { title } = Astro.props;
     & ul {
       list-style: none;
 
+      & > li {
+        text-indent: -25px;
+      }
+
       & > li::before {
         content: '- ';
+        text-indent: -25px;
       }
 
       & ul {
