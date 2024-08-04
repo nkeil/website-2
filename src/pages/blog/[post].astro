@@ -21,13 +21,13 @@ const formattedDate = `${date.getDate()} ${month} ${date.getFullYear()}`;
 ---
 
 <Layout {title} current="blog">
-  <Heading value={title} subtext={description} />
+  <Heading
+    value={title}
+    subtext={description}
+    subsubtext={`written ${formattedDate}`}
+  />
   <article>
     <Content />
-    <hr />
-    <p class="pub-date">
-      {formattedDate}
-    </p>
   </article>
 </Layout>
 

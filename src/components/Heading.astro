@@ -4,9 +4,10 @@ import { bgImage } from '../utils/background-image';
 interface Props {
   value: string;
   subtext?: string;
+  subsubtext?: string;
 }
 
-const { value, subtext } = Astro.props;
+const { value, subtext, subsubtext } = Astro.props;
 ---
 
 <div class="container">
@@ -29,6 +30,7 @@ const { value, subtext } = Astro.props;
       </div>
     )
   }
+  {subsubtext && <div class="subsubtext">({subsubtext})</div>}
 </div>
 
 <style>
@@ -73,5 +75,11 @@ const { value, subtext } = Astro.props;
 
     font-size: 1.25rem;
     display: inline-block;
+  }
+
+  .subsubtext {
+    font-family: 'BrotherDeluxe1350', serif;
+    text-align: center;
+    font-size: 1.25rem;
   }
 </style>
