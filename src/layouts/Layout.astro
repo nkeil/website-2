@@ -17,11 +17,16 @@ const { title, description, image, current } = Astro.props;
 
 <BaseLayout {title} {description} {image}>
   <div class="container">
-    <div style="margin-right: 100px">
-      <div style="margin-bottom: 60px">
+    <div class="header">
+      <div class="logo">
         <Logo />
       </div>
-      <Navigation {current} />
+      <div class="nav-web">
+        <Navigation {current} />
+      </div>
+      <div class="nav-mobile">
+        <Navigation {current} row={true} />
+      </div>
     </div>
 
     <div style="flex-grow: 1">
@@ -41,8 +46,43 @@ const { title, description, image, current } = Astro.props;
     margin-inline: auto;
   }
 
+  .logo {
+    margin-bottom: 60px;
+    min-width: 140px;
+  }
+
   .theme-picker {
     margin-top: 70px;
     margin-inline: auto;
+  }
+
+  /* Web Layout */
+  @media (min-width: 770px) {
+    .nav-mobile {
+      display: none;
+    }
+
+    .header {
+      margin-right: 100px;
+    }
+  }
+
+  /* Mobile Layout */
+  @media (max-width: 769px) {
+    .nav-web {
+      display: none;
+    }
+
+    .container {
+      flex-direction: column;
+    }
+
+    .logo {
+      text-align: center;
+    }
+
+    .nav-mobile {
+      margin-bottom: 50px;
+    }
   }
 </style>

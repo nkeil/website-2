@@ -1,9 +1,10 @@
 ---
 interface Props {
   current: string;
+  row?: boolean;
 }
 
-const { current } = Astro.props;
+const { current, row } = Astro.props;
 
 const elements = [
   { label: 'About', value: 'about', link: '/about' },
@@ -14,7 +15,7 @@ const elements = [
 ];
 ---
 
-<ul class="container">
+<ul class={'container ' + (row ? 'row' : '')}>
   {
     elements.map((element) => (
       <li class={'nav-element ' + (element.value === current ? 'current' : '')}>
@@ -37,7 +38,12 @@ const elements = [
     letter-spacing: -0.125em;
     line-height: 45px;
 
-    transform: rotate(-0.9deg);
+    &.row {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
 
   ul {
@@ -48,6 +54,7 @@ const elements = [
 
   .nav-element {
     text-decoration: none;
+    transform: rotate(-0.9deg);
   }
 
   .current {
