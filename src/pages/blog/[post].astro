@@ -17,7 +17,7 @@ const { Content } = await post.render();
 
 const { title, description, pubDate, image } = post.data;
 const month = pubDate.toLocaleString('default', { month: 'long' });
-const formattedDate = `${pubDate.getDate()} ${month} ${pubDate.getFullYear()}`;
+const formattedDate = `${month} ${pubDate.getDate()} ${pubDate.getFullYear()}`;
 ---
 
 <Layout {title} {description} {image} current="blog">
